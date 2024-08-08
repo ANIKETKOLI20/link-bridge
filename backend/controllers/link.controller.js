@@ -2,13 +2,19 @@ import Link from '../models/link.model.js';
 
 // Create a new link
 export const createLink = async (req, res) => {
-  const { title, url, order } = req.body;
+  const { title, url } = req.body;
   const userId = req.user.id;
+
+  if (!title || !url) {
+    return res.status(400).json({ error: 'Title and URL are required' });
+  }
+
   try {
-    const newLink = new Link({ userId, title, url, order });
+    const newLink = new Link({ userId, title, url, order: Date.now() });
     await newLink.save();
     res.status(201).json(newLink);
   } catch (error) {
+    console.error('Error creating link:', error);
     res.status(500).json({ error: error.message });
   }
 };
@@ -77,7 +83,7 @@ export const deleteLink = async (req, res) => {
 
     res.json({ message: 'Link deleted successfully' });
   } catch (error) {
-    console.error('Delete link error:', error); // Log error for debugging
+    console.error('Delete link error:', error); 
     res.status(500).json({ error: error.message });
   }
 };

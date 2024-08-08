@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import LandingPage from './components/LandingPage';
 import SignUp from './components/Auth/SignUp';
 import Login from './components/Auth/Login';
 import Dashboard from './components/Dashboard/Dashboard';
@@ -12,18 +11,24 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/login" element={<Login />} />
-        <Route
-          path="/dashboard"
-          element={
+        <Route path="/" element={
             <PrivateRoute>
               <Dashboard />
             </PrivateRoute>
             
-          }
-        />
+          } />
+        <Route path="/signup" element={
+            <PrivateRoute>
+              <SignUp />
+            </PrivateRoute>
+            
+          } />
+        <Route path="/login" element={
+            <PrivateRoute>
+              <Login />
+            </PrivateRoute>
+            
+          } />
       </Routes>
     </Router>
   );

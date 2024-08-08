@@ -18,6 +18,8 @@ const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
+  // to handle submit functanality
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -27,15 +29,20 @@ const SignUp = () => {
         password,
       });
       localStorage.setItem("token", response.data.token);
-      navigate("/dashboard");
+      localStorage.setItem("username", response.data.username); 
+      navigate("/");
     } catch (err) {
       setError(err.response.data.error);
     }
   };
+  
+// to handle password visibility functanality
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
+
+  // to handle redirect login functanality
 
   const redirectSignIn = () => {
     navigate("/login");

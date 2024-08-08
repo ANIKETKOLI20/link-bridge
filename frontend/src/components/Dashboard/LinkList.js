@@ -13,7 +13,7 @@ const LinkList = ({ links, isLoading, onEdit, onDelete }) => {
   }
 
   return ( 
-    <div className="w-3/4 mx-auto flex flex-col justify-center space-y-4 rounded-xl"> 
+    <div className="w-3/4 mx-auto flex flex-col justify-center space-y-4 rounded-2xl"> 
       {links.map(link => (
         <div key={link._id} className="bg-white shadow rounded-lg p-4 flex justify-between items-center">
           <div>

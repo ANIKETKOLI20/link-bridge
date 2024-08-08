@@ -1,6 +1,6 @@
 import express from 'express';
 import { createLink, getLinks, updateLink, deleteLink } from '../controllers/link.controller.js';
-import  { protectRoute } from '../middleware/protectRoute.js';
+import { protectRoute } from '../middleware/protectRoute.js';
 
 const router = express.Router();
 

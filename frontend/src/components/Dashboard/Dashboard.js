@@ -28,14 +28,9 @@ const Dashboard = () => {
     fetchLinks();
   }, []);
 
-  // to handle Logout functionality
 
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    window.location.href = '/';
-  };
 
-    // to add links
+    // to handle add links
 
   const handleAddLink = async (link) => {
     try {
@@ -97,7 +92,6 @@ const Dashboard = () => {
               onDelete={handleDeleteLink}
             />
           </main>
-          <button className="btn btn-info mt-4" onClick={handleLogout}>Logout</button>
         </div>
 
         {/* Modal for Adding Link */}

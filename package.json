@@ -4,8 +4,8 @@
   "main": "server.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon backend/server.js",
-		"start": "cross-env NODE_ENV=production node backend/server.js",
-		"build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
+    "start": "cross-env NODE_ENV=production node backend/server.js",
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
   },
   "keywords": [],
   "type": "module",
@@ -20,6 +20,7 @@
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.5.2",
-    "react-hot-toast": "^2.4.1"
+    "react-hot-toast": "^2.4.1",
+    "cross-env": "^7.0.3"  // Added cross-env here
   }
 }
